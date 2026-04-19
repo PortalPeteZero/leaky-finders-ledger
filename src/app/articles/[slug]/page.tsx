@@ -1,5 +1,3 @@
-import { notFound } from 'next/navigation'
-
 // Placeholder - will be built in Phase 2 with full BlockRenderer
 export default function ArticlePage({ params }: { params: { slug: string } }) {
   return (
