@@ -427,7 +427,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .story-copy {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   line-height: 1.8;
   color: var(--ink-soft);
 }
@@ -446,9 +446,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Wide Interruption ─────────────────────────────────────────────────── */
 .wide-interruption { margin-block: 3.5rem; }
+.wide-interruption .figure-shell img {
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center top;
+}
 .wide-interruption.interruption-compressed {
   max-width: 720px;
   margin-inline: auto;
+}
+.wide-interruption.interruption-compressed .figure-shell img {
+  max-height: 360px;
 }
 
 /* ─── Gallery Strip ─────────────────────────────────────────────────────── */
@@ -502,8 +510,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .centre-copy {
   font-family: var(--font-body);
-  font-size: 1.1rem;
-  line-height: 1.75;
+  font-size: 1.25rem;
+  line-height: 1.8;
   color: var(--ink-soft);
 }
 
@@ -544,8 +552,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .closing-prose {
   font-family: var(--font-body);
-  font-size: 1.1rem;
-  line-height: 1.75;
+  font-size: 1.25rem;
+  line-height: 1.8;
   color: var(--ink-soft);
 }
 
