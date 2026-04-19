@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Crimson_Text, Source_Sans_3 } from 'next/font/google'
+import { Bevan, Crimson_Text, Source_Sans_3 } from 'next/font/google'
 import './globals.css'
 
-const playfair = Playfair_Display({
+const bevan = Bevan({
   subsets: ['latin'],
-  weight: ['400', '700', '900'],
+  weight: '400',
   display: 'swap',
-  variable: '--font-playfair',
+  variable: '--font-bevan',
 })
 
 const crimson = Crimson_Text({
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${crimson.variable} ${sourceSans.variable}`}>
+    <html lang="en" className={`${bevan.variable} ${crimson.variable} ${sourceSans.variable}`}>
       <body style={{
         fontFamily: "var(--font-crimson, 'Crimson Text', Georgia, serif)",
       }}>

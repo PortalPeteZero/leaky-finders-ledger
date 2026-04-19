@@ -17,7 +17,7 @@
   --masthead-bg:  #6B1A1A;
   --terracotta:   #A0522D;
 
-  --font-display: var(--font-playfair, 'Playfair Display', Georgia, serif);
+  --font-display: var(--font-bevan, 'Bevan', Georgia, serif);
   --font-body:    var(--font-crimson, 'Crimson Text', Georgia, serif);
   --font-ui:      var(--font-source-sans, 'Source Sans 3', system-ui, sans-serif);
 
@@ -423,6 +423,7 @@ h1, h2, h3, h4, h5, h6 {
   .editorial-spread.spread-reverse { direction: rtl; }
   .editorial-spread.spread-reverse > * { direction: ltr; }
   .editorial-spread.spread-narrow-gap { gap: 1.25rem; }
+  .editorial-spread.editorial-spread--text-only { grid-template-columns: 1fr; max-width: 780px; margin-left: auto; margin-right: auto; }
 }
 
 .story-copy {

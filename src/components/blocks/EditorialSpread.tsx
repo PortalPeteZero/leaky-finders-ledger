@@ -9,9 +9,9 @@ function getImageUrl(path: string) {
 
 interface EditorialSpreadProps {
   text: string[]
-  image: string
-  image_caption: string
-  image_alt: string
+  image?: string
+  image_caption?: string
+  image_alt?: string
   reverse?: boolean
   narrow_gap?: boolean
   inline_quote?: string
@@ -20,7 +20,7 @@ interface EditorialSpreadProps {
 
 export function EditorialSpread({ text, image, image_caption, image_alt, reverse, narrow_gap, inline_quote, inline_quote_accent }: EditorialSpreadProps) {
   const classes = [
-    'editorial-spread',
+    image ? 'editorial-spread' : 'editorial-spread editorial-spread--text-only',
     reverse ? 'spread-reverse' : '',
     narrow_gap ? 'spread-narrow-gap' : '',
   ].filter(Boolean).join(' ')
@@ -37,18 +37,20 @@ export function EditorialSpread({ text, image, image_caption, image_alt, reverse
           </div>
         )}
       </div>
-      <figure className="editorial-figure" style={{ margin: 0 }}>
-        <div className="figure-shell">
-          <Image
-            src={getImageUrl(image)}
-            alt={image_alt}
-            width={700}
-            height={520}
-            style={{ width: '100%', height: 'auto' }}
-          />
-        </div>
-        <figcaption className="figure-caption">{image_caption}</figcaption>
-      </figure>
+      {image && (
+        <figure className="editorial-figure" style={{ margin: 0 }}>
+          <div className="figure-shell">
+            <Image
+              src={getImageUrl(image)}
+              alt={image_alt ?? ''}
+              width={700}
+              height={520}
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </div>
+          {image_caption && <figcaption className="figure-caption">{image_caption}</figcaption>}
+        </figure>
+      )}
     </section>
   )
 }

@@ -74,14 +74,6 @@ const article = {
       reverse: false,
     },
 
-    // Block 6: Wide interruption (English breakfast)
-    {
-      type: 'wide-interruption',
-      image: img('img03_english_breakfast_sermon', 'full'),
-      image_caption: 'Breakfast becomes a referendum on cultural purity rather than a request for bacon and tea.',
-      image_alt: 'A family turning an English breakfast question into a sermon about authentic travel.',
-    },
-
     // Block 7: Editorial spread reverse (charger + remaining paragraphs)
     {
       type: 'editorial-spread',
@@ -117,39 +109,22 @@ const article = {
       narrow_gap: true,
     },
 
-    // Block 10: Gallery strip (chips, football, tomatoes)
+    // Block 10: Wide interruption (chips — solo survivor from original gallery)
     {
-      type: 'gallery-strip',
-      images: [
-        {
-          src: img('img08_chips_vs_peppers'),
-          caption: 'The chips question usually ends with somebody else proving their children are morally superior.',
-          alt: 'Children rejecting chips in favour of Mediterranean delicacies in a satirical cartoon.',
-        },
-        {
-          src: img('img09_football_vs_meaningful_silence'),
-          caption: 'Football is treated as an interruption to a premium silence experience.',
-          alt: 'A football question being shamed by a deeply earnest family holiday scene.',
-        },
-        {
-          src: img('img10_pilar_tomatoes'),
-          caption: 'At some point even beans become a cultural failing.',
-          alt: 'A grandmother called Pilar with tomatoes used to shame baked bean buyers.',
-        },
-      ],
+      type: 'wide-interruption',
+      image: img('img08_chips_vs_peppers', 'full'),
+      image_caption: 'The chips question usually ends with somebody else proving their children are morally superior.',
+      image_alt: 'Children rejecting chips in favour of Mediterranean delicacies in a satirical cartoon.',
+      compressed: true,
     },
 
-    // Block 11: Editorial spread reverse (loungers)
+    // Block 11: Editorial spread reverse (loungers — image removed)
     {
       type: 'editorial-spread',
       text: [
         "Ask which supermarket sells Heinz beans and apparently once you have tasted tomatoes hand picked at sunrise by a local grandmother called Pilar, you will not even remember what beans are. Ask where to get a sun lounger and they do not do loungers. They lie directly on the earth so they can feel grounded and in tune with the volcanic energy.",
         "Ask whether any bars are showing the darts and they avoid screens entirely. Evenings are for candlelit chess, soft guitar music, and teaching the children how to identify constellations in three languages. Somehow every one of these families has children who wake up delighted, fully dressed, and desperate to learn about local pottery. Remarkable scenes.",
       ],
-      image: img('img11_volcanic_energy_loungers'),
-      image_caption: 'The lounger inquiry quickly turns into geothermal spirituality.',
-      image_alt: 'People lying on volcanic ground instead of using a sun lounger in a comic illustration.',
-      reverse: true,
       inline_quote: "Nobody is this wholesome for seven straight days in 32 degree heat.",
       inline_quote_accent: true,
     },
