@@ -1,27 +1,51 @@
-import type { Metadata } from "next"
-import "./globals.css"
+import type { Metadata } from 'next'
+import { Playfair_Display, Crimson_Text, Source_Sans_3 } from 'next/font/google'
+import './globals.css'
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '700', '900'],
+  display: 'swap',
+  variable: '--font-playfair',
+})
+
+const crimson = Crimson_Text({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-crimson',
+})
+
+const sourceSans = Source_Sans_3({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  display: 'swap',
+  variable: '--font-source-sans',
+})
 
 export const metadata: Metadata = {
-  title: "The Leaky Finders Ledger",
-  description: "Long-form articles: funny, informative, and investigative. By Order of the Leaky Finders.",
+  title: {
+    default: 'The Leaky Finders Ledger',
+    template: '%s | The Leaky Finders Ledger',
+  },
+  description: 'Long-form articles: funny, informative, and investigative. By Order of the Leaky Finders.',
+  metadataBase: new URL('https://leaky-ledger.com'),
+  openGraph: {
+    siteName: 'The Leaky Finders Ledger',
+    type: 'website',
+  },
+  robots: { index: true, follow: true },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>{children}</body>
+    <html lang="en" className={`${playfair.variable} ${crimson.variable} ${sourceSans.variable}`}>
+      <body style={{
+        fontFamily: "var(--font-crimson, 'Crimson Text', Georgia, serif)",
+      }}>
+        {children}
+      </body>
     </html>
   )
 }
