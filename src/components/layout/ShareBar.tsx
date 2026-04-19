@@ -21,7 +21,7 @@ export function ShareBar({ url, title }: ShareBarProps) {
 
   return (
     <div className="share-bar">
-      <span className="share-label">Share this</span>
+      <span className="share-label">Share this dispatch</span>
       <a href={fbUrl} target="_blank" rel="noopener noreferrer" className="share-btn share-btn-fb">
         Facebook
       </a>

@@ -4,16 +4,18 @@
 
 /* ─── Design Tokens ─────────────────────────────────────────────────────── */
 :root {
-  --paper:        #F8F5F0;
-  --paper-alt:    #F5F1EA;
-  --ink:          #1A1A1A;
-  --ink-soft:     #453729;
-  --gold:         hsl(43, 35%, 45%);
-  --gold-light:   hsl(43, 35%, 65%);
-  --gold-bright:  #F5A623;
-  --charcoal:     #2A2A2A;
-  --cream:        hsl(60, 17%, 92%);
-  --burgundy:     hsl(0, 45%, 35%);
+  --paper:        #F5EDD8;
+  --paper-alt:    #FAF7F2;
+  --ink:          #2E2E2E;
+  --ink-soft:     #4A3728;
+  --gold:         #C8993A;
+  --gold-light:   #D9AF63;
+  --gold-bright:  #D4962E;
+  --charcoal:     #2E2E2E;
+  --cream:        #F0EAD6;
+  --burgundy:     #8B1A1A;
+  --masthead-bg:  #6B1A1A;
+  --terracotta:   #A0522D;
 
   --font-display: var(--font-playfair, 'Playfair Display', Georgia, serif);
   --font-body:    var(--font-crimson, 'Crimson Text', Georgia, serif);
@@ -73,12 +75,24 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Masthead ──────────────────────────────────────────────────────────── */
 .site-masthead {
-  background-color: var(--charcoal);
+  background-color: var(--masthead-bg);
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 3px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 3px);
   color: #fff;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: none;
+}
+
+.site-masthead::after {
+  content: '';
+  display: block;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  height: 3px;
+  background: transparent;
 }
 
 .masthead-inner {
@@ -227,15 +241,26 @@ h1, h2, h3, h4, h5, h6 {
 .editorial-figure.tone-paper .figure-shell { background: var(--paper-alt); }
 .editorial-figure.tone-ink .figure-shell { background: var(--charcoal); }
 
-.figure-shell { overflow: hidden; border-radius: 2px; }
+.figure-shell {
+  border: 2px solid var(--gold);
+  padding: 4px;
+  background: var(--paper);
+}
+
+.editorial-figure.tone-ink .figure-shell { background: var(--charcoal); }
+
 .figure-shell img { width: 100%; height: auto; display: block; }
 
 .figure-caption {
-  font-family: var(--font-ui);
-  font-size: 0.76rem;
-  color: var(--gold);
-  margin-top: 0.45rem;
-  line-height: 1.4;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--charcoal);
+  margin-top: 0;
+  padding-top: 0.4rem;
+  border-top: 0.5px solid var(--gold);
+  line-height: 1.5;
 }
 
 /* ─── Lede Layout ───────────────────────────────────────────────────────── */
@@ -256,12 +281,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .margin-note {
   background: var(--cream);
-  border-left: 3px solid var(--gold);
+  border-left: 4px solid var(--burgundy);
   padding: 1rem 1.1rem;
   font-family: var(--font-body);
   font-size: 0.93rem;
   color: var(--ink-soft);
   line-height: 1.55;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    rgba(0,0,0,0.015) 4px,
+    rgba(0,0,0,0.015) 5px
+  );
 }
 
 .margin-note-kicker {
@@ -275,19 +307,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .quote-island {
-  background: var(--paper-alt);
-  border: 1px solid hsl(43, 20%, 82%);
-  padding: 1.25rem;
+  background: var(--charcoal);
+  border: none;
+  padding: 1.5rem 1.25rem;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
 }
+
+.quote-island .pull-quote { color: rgba(255,255,255,0.9); }
 
 .quote-island-kicker {
   font-family: var(--font-ui);
   font-size: 0.63rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold);
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
 }
 
 /* ─── Article Prose ─────────────────────────────────────────────────────── */
@@ -296,19 +333,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .drop-cap::first-letter {
   font-family: var(--font-display);
-  font-size: 4em;
+  font-size: 4.5em;
   font-weight: 900;
   float: left;
-  line-height: 0.82;
-  margin-right: 0.08em;
-  margin-top: 0.05em;
-  color: var(--gold);
+  line-height: 0.78;
+  margin-right: 0.1em;
+  margin-top: 0.04em;
+  color: var(--burgundy);
 }
 
 /* ─── Pull Quote ────────────────────────────────────────────────────────── */
 .pull-quote {
   font-family: var(--font-display);
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
   font-weight: 700;
   font-style: italic;
   color: var(--ink);
@@ -322,35 +359,47 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-rule {
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.5;
-  margin-bottom: 1.25rem;
+  height: 0;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding-top: 3px;
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
 }
 
 .section-number {
   font-family: var(--font-display);
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 900;
   color: var(--gold);
-  opacity: 0.22;
+  opacity: 0.55;
   line-height: 1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.section-ornament {
+  color: var(--gold);
+  font-size: 0.7rem;
+  opacity: 0.7;
+  letter-spacing: 0.5em;
+  display: block;
+  margin-bottom: 0.4rem;
 }
 
 .section-kicker {
   font-family: var(--font-ui);
   font-size: 0.63rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--charcoal);
   display: block;
   margin-bottom: 0.4rem;
+  font-weight: 600;
 }
 
 .section-title-text {
   font-family: var(--font-display);
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 700;
   color: var(--ink);
   max-width: 58ch;
@@ -378,8 +427,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .story-copy {
   font-family: var(--font-body);
-  font-size: 1.1rem;
-  line-height: 1.75;
+  font-size: 1.125rem;
+  line-height: 1.8;
   color: var(--ink-soft);
 }
 
@@ -388,8 +437,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .inline-quote {
   margin-top: 1.5rem;
-  border-left: 3px solid var(--gold);
-  padding: 0.4rem 0 0.4rem 1rem;
+  border-left: 6px solid var(--burgundy);
+  padding: 0.6rem 0.75rem 0.6rem 1.25rem;
+  background: rgba(200, 153, 58, 0.05);
 }
 
 .inline-quote.inline-quote-accent { border-color: var(--burgundy); }
@@ -412,13 +462,27 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Quote Break ───────────────────────────────────────────────────────── */
 .quote-break {
   text-align: center;
-  padding-block: 2.5rem;
+  padding-block: 3rem;
   margin-bottom: 3rem;
-  border-top: 1px solid hsl(43, 25%, 80%);
-  border-bottom: 1px solid hsl(43, 25%, 80%);
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  background: rgba(200, 153, 58, 0.04);
+  position: relative;
 }
 
 .quote-break .pull-quote { max-width: 52ch; margin-inline: auto; }
+
+.quote-break-glyph {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 0.7;
+  color: var(--gold);
+  opacity: 0.3;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-style: normal;
+  font-weight: 900;
+}
 
 /* ─── Centre Spread ─────────────────────────────────────────────────────── */
 .centre-spread {
@@ -489,25 +553,29 @@ h1, h2, h3, h4, h5, h6 {
 .closing-prose p:last-child { margin-bottom: 0; }
 
 .canary-note {
-  background: var(--cream);
-  border-left: 3px solid var(--gold-bright);
-  padding: 1rem 1.25rem;
-  margin-top: 2rem;
+  background: var(--charcoal);
+  border: none;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding: 1.5rem 1.5rem;
+  margin-top: 2.5rem;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-style: italic;
-  color: var(--ink-soft);
+  color: rgba(255,255,255,0.82);
+  line-height: 1.65;
 }
 
 .canary-note-kicker {
   font-family: var(--font-ui);
   font-size: 0.63rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold-bright);
+  color: var(--gold);
   font-style: normal;
+  font-weight: 600;
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
 }
 
 /* ─── Aside Box ─────────────────────────────────────────────────────────── */
@@ -664,9 +732,10 @@ h1, h2, h3, h4, h5, h6 {
 .share-label {
   font-family: var(--font-ui);
   font-size: 0.68rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--gold);
+  font-weight: 600;
 }
 
 .share-btn {
@@ -684,10 +753,10 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
 }
 
-.share-btn:hover { opacity: 0.85; }
-.share-btn-fb { background: #1877f2; color: #fff; }
-.share-btn-wa { background: #25d366; color: #fff; }
-.share-btn-copy { background: var(--cream); color: var(--ink); border: 1px solid hsl(43, 20%, 78%) !important; }
+.share-btn:hover { opacity: 0.82; transform: translateY(-1px); }
+.share-btn-fb { background: var(--burgundy); color: #fff; }
+.share-btn-wa { background: var(--charcoal); color: #fff; }
+.share-btn-copy { background: transparent; color: var(--ink); border: 1.5px solid var(--gold) !important; }
 
 /* ─── Article Card ──────────────────────────────────────────────────────── */
 .article-card {
@@ -934,10 +1003,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-stamp {
   font-family: var(--font-display);
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   font-style: italic;
   color: var(--gold);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-align: center;
   margin-top: 2rem;
   padding-top: 1.5rem;

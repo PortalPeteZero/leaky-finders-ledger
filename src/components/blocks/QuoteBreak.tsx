@@ -5,7 +5,8 @@ interface QuoteBreakProps {
 export function QuoteBreak({ quote }: QuoteBreakProps) {
   return (
     <div className="quote-break">
-      <p className="pull-quote">&ldquo;{quote}&rdquo;</p>
+      <span className="quote-break-glyph" aria-hidden="true">&#10077;</span>
+      <p className="pull-quote">{quote}</p>
     </div>
   )
 }
