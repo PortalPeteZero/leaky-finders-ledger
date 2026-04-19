@@ -16,7 +16,7 @@ interface WideInterruptionProps {
 
 export function WideInterruption({ image, image_caption, image_alt, compressed }: WideInterruptionProps) {
   return (
-    <figure className={`wide-interruption${compressed ? ' interruption-compressed' : ''}`} style={{ margin: 0 }}>
+    <figure className={`wide-interruption${compressed ? ' interruption-compressed' : ''}`}>
       <div className="figure-shell">
         <Image
           src={getImageUrl(image)}
