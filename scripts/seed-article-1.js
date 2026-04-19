@@ -3,7 +3,7 @@
 
 const https = require('https')
 
-const SUPABASE_URL = 'https://utithowmqzteorffaajp.supabase.co'
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://utithowmqzteorffaajp.supabase.co'
 const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
 
 // Storage paths use the slug prefix
