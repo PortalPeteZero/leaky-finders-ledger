@@ -94,7 +94,7 @@ export default async function HomePage() {
             <CategoryFilter articles={gridArticles} />
           ) : (
             <div style={{ textAlign: 'center', padding: '4rem 2rem' }}>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.1rem', fontStyle: 'italic', color: 'var(--ink-soft)' }}>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.1rem', fontStyle: 'italic', color: 'var(--ink-mid)' }}>
                 The next dispatch is being prepared. By Order of the Leaky Finders.
               </p>
             </div>

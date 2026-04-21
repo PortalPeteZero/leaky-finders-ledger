@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import Image from 'next/image'
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
@@ -25,11 +26,14 @@ export function CoverLayout({ headline, standfirst, details, image, image_captio
         <h1 className="cover-headline">{headline}</h1>
         <p className="cover-standfirst">{standfirst}</p>
         <div className="cover-details">
-          {details.map(d => (
-            <div key={d.label}>
-              <span className="cover-detail-label">{d.label}</span>
-              <span className="cover-detail-value">{d.value}</span>
-            </div>
+          {details.map((d, i) => (
+            <Fragment key={d.label}>
+              {i > 0 && <span className="cover-dateline-sep" aria-hidden="true" />}
+              <span className="cover-dateline-item">
+                <span className="cover-detail-label">{d.label}</span>
+                <span className="cover-detail-value">{d.value}</span>
+              </span>
+            </Fragment>
           ))}
         </div>
       </div>
