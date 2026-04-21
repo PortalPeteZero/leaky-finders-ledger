@@ -320,9 +320,10 @@ h1, h2, h3, h4, h5, h6 {
 .article-prose p:last-child { margin-bottom: 0; }
 
 .drop-cap::first-letter,
-.story-copy > p:first-of-type::first-letter,
+.article-prose > p:first-of-type::first-letter,
 .centre-copy > p:first-of-type::first-letter,
-.article-prose > p:first-of-type::first-letter {
+.closing-prose > p:first-of-type::first-letter,
+.story-copy > p:first-of-type::first-letter {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 4.8em;
